@@ -4,7 +4,55 @@ MuJoCo model of the full robot (base, hinged tracks, levelling actuator and seat
 Fusion 360 CAD, plus a Python port of the base's descent state machine. It runs the robot on
 eight-step 1:5 staircases at 24°, 32° and 40°, going down front first and climbing in reverse.
 
-![Descent, 40°](media/owner_down_40.gif) ![Climb, 40°](media/owner_up_40.gif)
+
+
+## Gallery
+
+**CAD-based model**, 60 s runs (`media/sim_*.gif`):
+
+<table>
+<tr>
+<td><img src="media/sim_0.gif" width="250"></td>
+<td><img src="media/sim_1.gif" width="250"></td>
+<td><img src="media/sim_2.gif" width="250"></td>
+</tr>
+<tr><td colspan="3" align="center">Descent at three stair angles</td></tr>
+<tr>
+<td><img src="media/sim_3.gif" width="250"></td>
+<td><img src="media/sim_4.gif" width="250"></td>
+<td></td>
+</tr>
+<tr><td colspan="2" align="center">Climbing in reverse; the steepest case stalls at the first riser</td><td></td></tr>
+</table>
+
+**Early simplified model** (box base with stretcher, before the CAD import) climbing up and over the
+top at five stair angles (`media/climb_*.gif`):
+
+<table>
+<tr>
+<td><img src="media/climb_0.gif" width="250"></td>
+<td><img src="media/climb_1.gif" width="250"></td>
+<td><img src="media/climb_2.gif" width="250"></td>
+</tr>
+<tr>
+<td><img src="media/climb_3.gif" width="250"></td>
+<td><img src="media/climb_4.gif" width="250"></td>
+<td></td>
+</tr>
+</table>
+
+**Descent controller runs** from `owner_test.py` (one frame every 10 s, `media/owner_*.gif`):
+down at 24°, 32° and 40°, up at 24° and 40°.
+
+<table>
+<tr>
+<td><img src="media/owner_down_24.gif" width="150"></td>
+<td><img src="media/owner_down_32.gif" width="150"></td>
+<td><img src="media/owner_down_40.gif" width="150"></td>
+<td><img src="media/owner_up_24.gif" width="150"></td>
+<td><img src="media/owner_up_40.gif" width="150"></td>
+</tr>
+</table>
 
 ## Files
 

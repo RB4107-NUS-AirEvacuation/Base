@@ -23,6 +23,25 @@ simulation/           MuJoCo model of the robot and a Python port of the descent
 
 See [`cad/README.md`](cad/README.md) and [`simulation/README.md`](simulation/README.md).
 
+## Simulation
+
+MuJoCo runs of the robot model built from the CAD (details in [`simulation/`](simulation/README.md)).
+
+<table>
+<tr>
+<td><img src="simulation/media/sim_0.gif" width="260"></td>
+<td><img src="simulation/media/sim_1.gif" width="260"></td>
+<td><img src="simulation/media/sim_2.gif" width="260"></td>
+</tr>
+<tr><td colspan="3" align="center">Descent, front first, at three stair angles</td></tr>
+<tr>
+<td><img src="simulation/media/sim_3.gif" width="260"></td>
+<td><img src="simulation/media/sim_4.gif" width="260"></td>
+<td><img src="simulation/media/climb_2.gif" width="260"></td>
+</tr>
+<tr><td colspan="2" align="center">Climbing in reverse (the steepest case stalls at the first riser)</td><td align="center">Early simplified model climbing over the top</td></tr>
+</table>
+
 ## Hardware
 
 | Part | Used for |
