@@ -17,7 +17,11 @@ its rear still on the last steps, where the casualty is handed over.
 TwoMotorSync/         Main firmware (ESP32-C6). Open TwoMotorSync.ino in the Arduino IDE.
   docs/               Schematic, descent flowchart, drive-failure figure (PNG + SVG)
 EncoderMotorSweep/    Early bench test for one motor + encoder + potentiometer (Arduino Uno)
+cad/                  CAD model and fabrication pack, Rev C2 (STEP, drawings, DXF, STL, BOM)
+simulation/           MuJoCo model of the robot and a Python port of the descent sequence
 ```
+
+See [`cad/README.md`](cad/README.md) and [`simulation/README.md`](simulation/README.md).
 
 ## Hardware
 

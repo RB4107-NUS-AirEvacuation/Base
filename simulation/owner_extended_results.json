@@ -1,0 +1,263 @@
+[
+  {
+    "angle": 24,
+    "seconds": 147.92,
+    "bottom_first_s": 58.69,
+    "final_position": [
+      -1.5257560968148385,
+      -0.06074694115657459,
+      0.02383741288990441
+    ],
+    "presses": 2,
+    "state": "DONE",
+    "events": [
+      [
+        0.0,
+        "CALIBRATE"
+      ],
+      [
+        0.54,
+        "APPROACH"
+      ],
+      [
+        11.76,
+        "CREEP"
+      ],
+      [
+        28.32,
+        "HINGE_DOWN"
+      ],
+      [
+        28.63,
+        "STRAIGHTEN"
+      ],
+      [
+        28.75,
+        "CRUISE"
+      ],
+      [
+        48.76,
+        "DONE"
+      ],
+      [
+        49.27,
+        "CALIBRATE"
+      ],
+      [
+        49.86,
+        "APPROACH"
+      ],
+      [
+        109.86,
+        "CREEP"
+      ],
+      [
+        126.66,
+        "HINGE_DOWN"
+      ],
+      [
+        126.97,
+        "STRAIGHTEN"
+      ],
+      [
+        127.32,
+        "CRUISE"
+      ],
+      [
+        147.32,
+        "DONE"
+      ]
+    ],
+    "timeouts": [
+      [
+        48.76,
+        "CRUISE",
+        "never flat again"
+      ],
+      [
+        109.86,
+        "APPROACH",
+        "no stair edge found"
+      ],
+      [
+        147.32,
+        "CRUISE",
+        "never flat again"
+      ]
+    ]
+  },
+  {
+    "angle": 32,
+    "seconds": 147.36,
+    "bottom_first_s": 55.12,
+    "final_position": [
+      -1.608262168290422,
+      -0.06310114439975015,
+      0.023881159658864275
+    ],
+    "presses": 2,
+    "state": "DONE",
+    "events": [
+      [
+        0.0,
+        "CALIBRATE"
+      ],
+      [
+        0.54,
+        "APPROACH"
+      ],
+      [
+        11.7,
+        "CREEP"
+      ],
+      [
+        28.1,
+        "HINGE_DOWN"
+      ],
+      [
+        28.42,
+        "STRAIGHTEN"
+      ],
+      [
+        28.43,
+        "CRUISE"
+      ],
+      [
+        48.44,
+        "DONE"
+      ],
+      [
+        48.95,
+        "CALIBRATE"
+      ],
+      [
+        49.5,
+        "APPROACH"
+      ],
+      [
+        109.5,
+        "CREEP"
+      ],
+      [
+        126.32,
+        "HINGE_DOWN"
+      ],
+      [
+        126.63,
+        "STRAIGHTEN"
+      ],
+      [
+        126.76,
+        "CRUISE"
+      ],
+      [
+        146.76,
+        "DONE"
+      ]
+    ],
+    "timeouts": [
+      [
+        48.44,
+        "CRUISE",
+        "never flat again"
+      ],
+      [
+        109.5,
+        "APPROACH",
+        "no stair edge found"
+      ],
+      [
+        146.76,
+        "CRUISE",
+        "never flat again"
+      ]
+    ]
+  },
+  {
+    "angle": 40,
+    "seconds": 147.33,
+    "bottom_first_s": 53.09,
+    "final_position": [
+      -1.6567296865716714,
+      -0.06280841988638175,
+      0.023895848586437413
+    ],
+    "presses": 2,
+    "state": "DONE",
+    "events": [
+      [
+        0.0,
+        "CALIBRATE"
+      ],
+      [
+        0.54,
+        "APPROACH"
+      ],
+      [
+        11.76,
+        "CREEP"
+      ],
+      [
+        28.11,
+        "HINGE_DOWN"
+      ],
+      [
+        28.44,
+        "STRAIGHTEN"
+      ],
+      [
+        28.45,
+        "CRUISE"
+      ],
+      [
+        48.46,
+        "DONE"
+      ],
+      [
+        48.97,
+        "CALIBRATE"
+      ],
+      [
+        49.56,
+        "APPROACH"
+      ],
+      [
+        109.56,
+        "CREEP"
+      ],
+      [
+        126.36,
+        "HINGE_DOWN"
+      ],
+      [
+        126.68,
+        "STRAIGHTEN"
+      ],
+      [
+        126.73,
+        "CRUISE"
+      ],
+      [
+        146.73,
+        "DONE"
+      ]
+    ],
+    "timeouts": [
+      [
+        48.46,
+        "CRUISE",
+        "never flat again"
+      ],
+      [
+        109.56,
+        "APPROACH",
+        "no stair edge found"
+      ],
+      [
+        146.73,
+        "CRUISE",
+        "never flat again"
+      ]
+    ]
+  }
+]

@@ -23,3 +23,8 @@ TwoMotorSync/old_*/
 
 # Local Claude Code settings
 .claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
