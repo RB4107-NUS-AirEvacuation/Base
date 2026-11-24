@@ -70,6 +70,66 @@ MuJoCo runs of the robot model built from the CAD (details in [`simulation/`](si
 | Ultrasonic TRIG / ECHO | GPIO15 / GPIO3 | ECHO through the divider |
 | Knob CLK / DT / SW | GPIO4 / GPIO5 / GPIO9 | SW is also the BOOT button |
 
+### Circuit
+
+Thick lines are power, solid lines are control signals and dotted lines are encoder feedback. All grounds are joined. The full schematic is
+[`TwoMotorSync/docs/schematic.png`](TwoMotorSync/docs/schematic.png).
+
+```mermaid
+flowchart LR
+    subgraph PWR["Power"]
+        BAT["3S LiPo<br/>11.1 V, 2800 mAh"]
+        FUSE["15 A fuse"]
+        SW["Switch"]
+        BUCK["5 V buck<br/>converter"]
+    end
+
+    subgraph DRV["Motor drivers"]
+        D1["MDD10A #1"]
+        D2["MDD10A #2"]
+    end
+
+    subgraph MOT["Motors"]
+        M1["Right track motor<br/>37D 150:1 + encoder"]
+        M2["Left track motor<br/>37D 150:1 + encoder"]
+        M3["Hinge worm motor"]
+    end
+
+    ESP["ESP32-C6<br/>DevKitC-1"]
+
+    subgraph SEN["Sensors and panel (3.3 V)"]
+        IMU["BNO085 IMU<br/>I²C 0x4A"]
+        OLED["0.91#quot; OLED<br/>I²C 0x3C"]
+        HALL["Hall sensor<br/>hinge end stop"]
+        KNOB["KY-040 knob"]
+    end
+    US["HC-SR04<br/>ultrasonic (5 V)"]
+    DIV["1 kΩ / 2 kΩ<br/>divider"]
+
+    BAT ==> FUSE ==> SW ==>|"VBAT 12 V"| D1
+    SW ==>|"VBAT 12 V"| D2
+    BAT ==>|"unfused"| BUCK ==>|"5 V"| ESP
+    ESP ==>|"5 V"| US
+    ESP ==>|"3V3"| SEN
+
+    ESP -->|"GPIO19 PWM / GPIO18 DIR"| D1
+    ESP -->|"GPIO23 PWM / GPIO22 DIR"| D1
+    ESP -->|"GPIO1 PWM / GPIO0 DIR"| D2
+    D1 -->|"M1A / M1B"| M1
+    D1 -->|"M2A / M2B"| M2
+    D2 -->|"M2A / M2B"| M3
+
+    M1 -.->|"encoder A/B: GPIO10 / GPIO11"| ESP
+    M2 -.->|"encoder A/B: GPIO20 / GPIO21"| ESP
+
+    ESP <-->|"SDA GPIO7 / SCL GPIO6"| IMU
+    ESP <-->|"shared I²C bus"| OLED
+    HALL -->|"GPIO2 (ADC)"| ESP
+    KNOB -->|"CLK GPIO4 / DT GPIO5 / SW GPIO9"| ESP
+    ESP -->|"TRIG GPIO15"| US
+    US -->|"ECHO 5 V"| DIV -->|"3.3 V, GPIO3"| ESP
+```
+
 All pins and tuning values live in [`TwoMotorSync/app_config.h`](TwoMotorSync/app_config.h).
 An Arduino Uno pin set is also kept there for bench testing without the panel.
 
