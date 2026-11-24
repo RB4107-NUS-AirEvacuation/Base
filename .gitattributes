@@ -1,0 +1,10 @@
+# Store CAD and binary files exactly as they are (no line-ending conversion)
+*.step  -text
+*.stp   -text
+*.dxf   -text
+*.stl   binary
+*.pdf   binary
+*.xlsx  binary
+*.png   binary
+*.jpg   binary
+*.gif   binary
