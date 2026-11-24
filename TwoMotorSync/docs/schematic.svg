@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 880" width="1240" height="880" font-family="Arial, Helvetica, sans-serif">
+  <style>
+    text { font-size: 12px; fill: #111; }
+    .t { font-size: 14px; font-weight: bold; }
+    .s { font-size: 10.5px; fill: #555; }
+    .pin { font-family: Consolas, "Courier New", monospace; font-size: 11.5px; }
+    .box { fill: #fafafa; stroke: #111; stroke-width: 1.3; }
+    .mcu { fill: #f4f4f4; stroke: #111; stroke-width: 2; }
+    .w { fill: none; stroke-width: 1.8; }
+    .pwr { stroke: #b3262d; } .gnd { stroke: #333; } .drive { stroke: #1f4fa3; }
+    .enc { stroke: #1b7a4b; } .i2c { stroke: #7a3fb0; } .sense { stroke: #b5561b; }
+    .flag { fill: #fff; stroke-width: 1.3; }
+    .res { fill: #fff; stroke: #b5561b; stroke-width: 1.6; }
+  </style>
+  <rect width="1240" height="880" fill="#ffffff"/>
+  <rect x="10" y="10" width="1220" height="860" fill="none" stroke="#111" stroke-width="1"/>
+
+  <!-- ================= Motor power ================= -->
+  <text x="40" y="44" class="s">POWER</text>
+  <!-- battery -->
+  <rect x="40" y="70" width="110" height="70" class="box"/>
+  <text x="95" y="92" text-anchor="middle" class="t">Battery</text>
+  <text x="95" y="110" text-anchor="middle" class="s">3S LiPo, 11.1 V</text>
+  <text x="95" y="125" text-anchor="middle" class="s">2800 mAh</text>
+  <text x="155" y="86" class="s">+</text><text x="155" y="120" class="s">−</text>
+  <!-- + line: fuse, switch, VBAT, buck -->
+  <path d="M150 92 H175" class="w pwr"/>
+  <rect x="175" y="85" width="40" height="14" rx="7" fill="#fff" stroke="#b3262d" stroke-width="1.6"/>
+  <text x="195" y="114" text-anchor="middle" class="s">F1 15 A</text>
+  <path d="M215 92 H243" class="w pwr"/>
+  <circle cx="246" cy="92" r="3" fill="#b3262d"/><circle cx="278" cy="92" r="3" fill="#b3262d"/>
+  <path d="M246 92 L274 79" class="w pwr"/>
+  <text x="262" y="114" text-anchor="middle" class="s">S1 switch</text>
+  <path d="M281 92 H330 V72" class="w pwr"/>
+  <text x="337" y="96" class="s">to drivers</text>
+  <!-- buck converter fed straight from the battery (not fused or switched) -->
+  <circle cx="163" cy="92" r="3.5" fill="#b3262d"/>
+  <path d="M163 92 V36 H400 V92 H420" class="w pwr"/>
+  <text x="282" y="30" text-anchor="middle" class="s">direct from battery (unfused, unswitched)</text>
+  <rect x="305" y="54" width="50" height="18" rx="9" class="flag" stroke="#b3262d"/><text x="330" y="67" text-anchor="middle" style="fill:#b3262d;font-weight:bold;font-size:10.5px">VBAT</text>
+
+  <!-- − line -->
+  <path d="M150 125 H420" class="w gnd"/>
+  <circle cx="360" cy="125" r="3.5" fill="#333"/>
+  <path d="M360 125 V150" class="w gnd"/>
+  <rect x="335" y="150" width="50" height="18" rx="9" class="flag" stroke="#333"/><text x="360" y="163" text-anchor="middle" style="font-weight:bold;font-size:10.5px">GND</text>
+  <!-- buck converter -->
+  <text x="470" y="66" text-anchor="middle" class="s">U6</text>
+  <rect x="420" y="72" width="100" height="66" class="box"/>
+  <text x="470" y="100" text-anchor="middle" class="t">5 V buck</text>
+  <text x="470" y="117" text-anchor="middle" class="s">converter</text>
+  <text x="426" y="88" class="pin" style="font-size:10px">IN</text><text x="426" y="130" class="pin" style="font-size:10px">GND</text>
+  <text x="514" y="88" text-anchor="end" class="pin" style="font-size:10px">OUT</text>
+  <path d="M520 92 H545" class="w pwr"/>
+  <rect x="545" y="83" width="40" height="18" rx="9" class="flag" stroke="#b3262d"/><text x="565" y="96" text-anchor="middle" style="fill:#b3262d;font-weight:bold;font-size:10.5px">5V</text>
+
+  <!-- ================= Motors ================= -->
+  <text x="115" y="214" text-anchor="middle" class="s">DC gearmotors, 150:1</text>
+  <rect x="60" y="222" width="110" height="58" rx="29" class="box"/>
+  <text x="115" y="248" text-anchor="middle" class="t">M1</text>
+  <text x="115" y="265" text-anchor="middle" class="s">right track</text>
+  <rect x="60" y="290" width="110" height="58" rx="29" class="box"/>
+  <text x="115" y="316" text-anchor="middle" class="t">M2</text>
+  <text x="115" y="333" text-anchor="middle" class="s">left track</text>
+  <rect x="60" y="386" width="110" height="58" rx="29" class="box"/>
+  <text x="115" y="412" text-anchor="middle" class="t">M3</text>
+  <text x="115" y="429" text-anchor="middle" class="s">hinge</text>
+  <path d="M170 240 H300 M170 265 H300 M170 305 H300 M170 330 H300 M170 400 H300 M170 430 H300" class="w pwr"/>
+
+  <!-- ================= U2 MDD10A (tracks) ================= -->
+  <text x="370" y="198" text-anchor="middle" class="s">U2</text>
+  <rect x="300" y="205" width="140" height="165" class="box"/>
+  <text x="370" y="282" text-anchor="middle" class="t">MDD10A</text>
+  <text x="370" y="298" text-anchor="middle" class="s">dual driver</text>
+  <text x="307" y="244" class="pin">M1A</text><text x="307" y="269" class="pin">M1B</text>
+  <text x="307" y="309" class="pin">M2A</text><text x="307" y="334" class="pin">M2B</text>
+  <text x="433" y="244" text-anchor="end" class="pin">DIR1</text><text x="433" y="274" text-anchor="end" class="pin">PWM1</text>
+  <text x="433" y="304" text-anchor="end" class="pin">DIR2</text><text x="433" y="334" text-anchor="end" class="pin">PWM2</text>
+  <text x="370" y="360" text-anchor="middle" class="s">VB+ = VBAT · VB− = GND</text>
+
+  <!-- ================= U3 MDD10A (hinge) ================= -->
+  
+  <rect x="300" y="385" width="140" height="95" class="box"/>
+  <text x="370" y="423" text-anchor="middle" class="t">MDD10A</text>
+  <text x="370" y="454" text-anchor="middle" class="s">U3 · ch 1 unused</text>
+  <text x="307" y="404" class="pin">M2A</text><text x="307" y="434" class="pin">M2B</text>
+  <text x="433" y="404" text-anchor="end" class="pin">DIR2</text><text x="433" y="434" text-anchor="end" class="pin">PWM2</text>
+  <text x="370" y="472" text-anchor="middle" class="s">VB+ = VBAT · VB− = GND</text>
+
+  <path d="M440 240 H560 M440 270 H560 M440 300 H560 M440 330 H560 M440 400 H560 M440 430 H560" class="w drive"/>
+  <text x="500" y="352" text-anchor="middle" class="s">driver GND pins → GND</text>
+
+  <!-- ================= Encoders ================= -->
+  <rect x="300" y="500" width="140" height="75" class="box"/>
+  <text x="307" y="520" class="t">ENC1</text>
+  <text x="307" y="537" class="s">Hall encoder on M1</text>
+  <text x="307" y="565" class="s">VCC = 3V3 · GND</text>
+  <text x="433" y="524" text-anchor="end" class="pin">A</text><text x="433" y="554" text-anchor="end" class="pin">B</text>
+  <rect x="300" y="620" width="140" height="75" class="box"/>
+  <text x="307" y="640" class="t">ENC2</text>
+  <text x="307" y="657" class="s">Hall encoder on M2</text>
+  <text x="307" y="685" class="s">VCC = 3V3 · GND</text>
+  <text x="433" y="644" text-anchor="end" class="pin">A</text><text x="433" y="674" text-anchor="end" class="pin">B</text>
+  <path d="M440 520 H560 M440 550 H560 M440 640 H560 M440 670 H560" class="w enc"/>
+
+  <!-- ================= U1 ESP32-C6 ================= -->
+  <text x="660" y="188" text-anchor="middle" class="s">U1</text>
+  <rect x="560" y="195" width="200" height="600" rx="3" class="mcu"/>
+  <text x="660" y="462" text-anchor="middle" class="t" style="font-size:17px">ESP32-C6</text>
+  <text x="660" y="480" text-anchor="middle" class="s">DevKitC-1</text>
+  <text x="660" y="600" text-anchor="middle" class="s">powered on 5V from U6</text>
+  <text x="660" y="614" text-anchor="middle" class="s">USB-C: programming</text>
+  <text x="660" y="780" text-anchor="middle" class="s">3.3 V logic</text>
+  <text x="568" y="244" class="pin">GPIO18</text><text x="568" y="274" class="pin">GPIO19</text>
+  <text x="568" y="304" class="pin">GPIO22</text><text x="568" y="334" class="pin">GPIO23</text>
+  <text x="568" y="404" class="pin">GPIO0</text><text x="568" y="434" class="pin">GPIO1</text>
+  <text x="568" y="524" class="pin">GPIO10</text><text x="568" y="554" class="pin">GPIO11</text>
+  <text x="568" y="644" class="pin">GPIO20</text><text x="568" y="674" class="pin">GPIO21</text>
+  <text x="568" y="744" class="pin">GND</text>
+  <path d="M560 740 H515" class="w gnd"/>
+  <rect x="470" y="731" width="45" height="18" rx="9" class="flag" stroke="#333"/><text x="492" y="744" text-anchor="middle" style="font-weight:bold;font-size:10.5px">GND</text>
+  <text x="752" y="229" text-anchor="end" class="pin">3V3</text>
+  <text x="752" y="259" text-anchor="end" class="pin">5V</text>
+  <text x="752" y="289" text-anchor="end" class="pin">GND</text>
+  <text x="752" y="364" text-anchor="end" class="pin">GPIO7</text>
+  <text x="752" y="394" text-anchor="end" class="pin">GPIO6</text>
+  <text x="752" y="474" text-anchor="end" class="pin">GPIO2</text>
+  <text x="752" y="554" text-anchor="end" class="pin">GPIO15</text>
+  <text x="752" y="584" text-anchor="end" class="pin">GPIO3</text>
+  <text x="752" y="684" text-anchor="end" class="pin">GPIO4</text>
+  <text x="752" y="714" text-anchor="end" class="pin">GPIO5</text>
+  <text x="752" y="744" text-anchor="end" class="pin">GPIO9</text>
+  <path d="M760 225 H790 M760 255 H790" class="w pwr"/><path d="M760 285 H790" class="w gnd"/>
+  <rect x="790" y="216" width="40" height="18" rx="9" class="flag" stroke="#b3262d"/><text x="810" y="229" text-anchor="middle" style="fill:#b3262d;font-weight:bold;font-size:10.5px">3V3</text>
+  <rect x="790" y="246" width="40" height="18" rx="9" class="flag" stroke="#b3262d"/><text x="810" y="259" text-anchor="middle" style="fill:#b3262d;font-weight:bold;font-size:10.5px">5V</text>
+  <rect x="790" y="276" width="40" height="18" rx="9" class="flag" stroke="#333"/><text x="810" y="289" text-anchor="middle" style="font-weight:bold;font-size:10.5px">GND</text>
+
+  <!-- ================= I2C ================= -->
+  <path d="M760 360 H1170 M760 390 H1170" class="w i2c"/>
+  <text x="772" y="354" class="s">SDA</text><text x="772" y="384" class="s">SCL</text>
+  <text x="930" y="203" text-anchor="middle" class="s">U4</text>
+  <rect x="850" y="210" width="160" height="110" class="box"/>
+  <text x="860" y="230" class="t">BNO085 IMU</text>
+  <text x="860" y="247" class="s">I²C address 0x4A</text>
+  <text x="860" y="264" class="s">VIN = 3V3 · GND</text>
+  <text x="860" y="279" class="s">AD0 = GND · INT n/c</text>
+  <text x="890" y="312" text-anchor="middle" class="pin">SDA</text><text x="950" y="312" text-anchor="middle" class="pin">SCL</text>
+  <path d="M890 320 V360 M950 320 V390" class="w i2c"/>
+  <circle cx="890" cy="360" r="3.5" fill="#7a3fb0"/><circle cx="950" cy="390" r="3.5" fill="#7a3fb0"/>
+  <text x="1110" y="203" text-anchor="middle" class="s">U5</text>
+  <rect x="1030" y="210" width="160" height="110" class="box"/>
+  <text x="1040" y="230" class="t">OLED 0.91"</text>
+  <text x="1040" y="247" class="s">SSD1306 128×32, 0x3C</text>
+  <text x="1040" y="264" class="s">VCC = 3V3 · GND</text>
+  <text x="1070" y="312" text-anchor="middle" class="pin">SDA</text><text x="1130" y="312" text-anchor="middle" class="pin">SCL</text>
+  <path d="M1070 320 V360 M1130 320 V390" class="w i2c"/>
+  <circle cx="1070" cy="360" r="3.5" fill="#7a3fb0"/><circle cx="1130" cy="390" r="3.5" fill="#7a3fb0"/>
+
+  <!-- ================= Hall ================= -->
+  <path d="M760 470 H850" class="w sense"/>
+  <rect x="850" y="440" width="180" height="64" class="box"/>
+  <text x="858" y="474" class="pin">OUT</text>
+  <text x="900" y="460" class="t">Hall sensor</text>
+  <text x="900" y="477" class="s">analog, hinge end stop</text>
+  <text x="900" y="494" class="s">VCC = 3V3 · GND</text>
+
+  <!-- ================= Ultrasonic ================= -->
+  <path d="M760 550 H990" class="w sense"/>
+  <path d="M760 580 H850 M910 580 H990" class="w sense"/>
+  <rect x="850" y="573" width="60" height="14" class="res"/>
+  <text x="880" y="569" text-anchor="middle" class="s">R1 1 kΩ</text>
+  <circle cx="820" cy="580" r="3.5" fill="#b5561b"/>
+  <path d="M820 580 V598 M820 630 V645" class="w sense"/>
+  <rect x="813" y="598" width="14" height="32" class="res"/>
+  <text x="834" y="618" class="s">R2 2 kΩ</text>
+  <path d="M808 645 H832 M812 650 H828 M816 655 H824" class="w gnd"/>
+  <rect x="990" y="525" width="180" height="90" class="box"/>
+  <text x="998" y="554" class="pin">TRIG</text><text x="998" y="584" class="pin">ECHO</text>
+  <text x="1060" y="548" class="t">HC-SR04</text>
+  <text x="1060" y="566" class="s">ultrasonic, facing down</text>
+  <text x="1060" y="584" class="s">VCC = 5V · GND</text>
+  <text x="1060" y="600" class="s">5 V echo → divider</text>
+
+  <!-- ================= Knob ================= -->
+  <path d="M760 680 H900 M760 710 H900 M760 740 H900" class="w drive"/>
+  <rect x="900" y="655" width="180" height="105" class="box"/>
+  <text x="908" y="684" class="pin">CLK</text><text x="908" y="714" class="pin">DT</text><text x="908" y="744" class="pin">SW</text>
+  <text x="960" y="680" class="t">KY-040</text>
+  <text x="960" y="697" class="s">rotary encoder knob</text>
+  <text x="960" y="714" class="s">+ = 3V3 · GND</text>
+  <text x="960" y="731" class="s">SW switches to GND</text>
+
+  <!-- ================= Legend ================= -->
+  <g transform="translate(40 815)">
+    <text x="0" y="0" class="s" style="font-weight:bold">LEGEND</text>
+    <path d="M0 18 H24" class="w pwr"/><text x="30" y="22" class="s">power / motor leads</text>
+    <path d="M160 18 H184" class="w gnd"/><text x="190" y="22" class="s">ground</text>
+    <path d="M250 18 H274" class="w drive"/><text x="280" y="22" class="s">digital out / knob</text>
+    <path d="M400 18 H424" class="w enc"/><text x="430" y="22" class="s">encoders</text>
+    <path d="M500 18 H524" class="w i2c"/><text x="530" y="22" class="s">I²C</text>
+    <path d="M570 18 H594" class="w sense"/><text x="600" y="22" class="s">sensors</text>
+    <text x="0" y="42" class="s">Net labels (VBAT, 5V, 3V3, GND) join every pin of the same name. All grounds are common.</text>
+  </g>
+
+  <!-- ================= Title block ================= -->
+  <g transform="translate(900 790)">
+    <rect width="320" height="70" fill="#fff" stroke="#111" stroke-width="1"/>
+    <path d="M0 30 H320 M200 30 V70" stroke="#111" stroke-width="1"/>
+    <text x="10" y="21" class="t">RB4107 Stair Climber schematic</text>
+    <text x="10" y="47" class="s">Controller, drives and sensors</text>
+    <text x="10" y="62" class="s">Pins per firmware app_config.h</text>
+    <text x="210" y="47" class="s">Rev 2</text>
+    <text x="210" y="62" class="s">24 Nov 2026</text>
+  </g>
+</svg>

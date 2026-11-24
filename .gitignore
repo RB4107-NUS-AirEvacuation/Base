@@ -1,0 +1,25 @@
+# Arduino / arduino-cli build output
+build/
+build-*/
+*.bin
+*.elf
+*.hex
+*.map
+
+# PlatformIO (if anyone opens the sketches with it)
+.pio/
+.vscode/
+.idea/
+
+# OS and editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+*.swp
+
+# Superseded code kept locally only
+TwoMotorSync/old_*/
+
+# Local Claude Code settings
+.claude/settings.local.json
